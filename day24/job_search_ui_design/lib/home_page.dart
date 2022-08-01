@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:job_search_ui_design/app_bar_main.dart';
 import 'package:job_search_ui_design/home_main_screen.dart';
+import 'package:job_search_ui_design/product.dart';
+import 'package:job_search_ui_design/tag_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -20,6 +22,8 @@ class _HomePageState extends State<HomePage> {
             AppBarMain(),
             SizedBox(height: 16),
             HomeMainScreen(),
+            TagList(),
+            Product(),
           ],
         ),
       ),

@@ -16,46 +16,53 @@ class _HomeMainScreenState extends State<HomeMainScreen> {
         width: MediaQuery.of(context).size.width,
         height: 300,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: BorderRadius.circular(30),
             color: Colors.green,
-            image: DecorationImage(
-              image: AssetImage("assets\images\search_bg.png"),
+            image: const DecorationImage(
+              image: AssetImage("assets/images/search_bg.png"),
+              fit: BoxFit.cover,
             )),
         child: Container(
-          padding: EdgeInsets.all(16),
-          margin: EdgeInsets.only(top: 25),
+          padding: const EdgeInsets.all(16),
+          margin: const EdgeInsets.only(top: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "Fast Search",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              Text(
-                "You ca search quickly for \nthe job you want",
+              const Text(
+                "You can search quickly for \nthe job you want",
                 style: TextStyle(
                   color: Colors.white,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Container(
-                margin: EdgeInsets.only(right: 26),
-                padding: EdgeInsets.all(12),
+                margin: const EdgeInsets.only(right: 26),
+                padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(16)),
+                    borderRadius: BorderRadius.circular(20)),
                 child: Row(
-                  children: [
-                    Icon(Icons.search),
-                    Text(" Search"),
+                  children: const [
+                    Icon(
+                      Icons.search,
+                      color: Colors.grey,
+                    ),
+                    Text(
+                      " Search",
+                      style: TextStyle(color: Colors.grey),
+                    ),
                   ],
                 ),
               )
