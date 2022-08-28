@@ -11,8 +11,8 @@ class SingUp extends StatefulWidget {
 }
 
 class _SingUpState extends State<SingUp> {
-  final _emailController = TextEditingController();
-  final _passController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

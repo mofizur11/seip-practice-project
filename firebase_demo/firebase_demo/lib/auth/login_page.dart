@@ -11,8 +11,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final _emailController = TextEditingController();
-  final _passController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -55,11 +55,11 @@ class _LoginState extends State<Login> {
                       .signIn(email: email, password: password)
                       .then((result) {
                     if (result == null) {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => const HomePage()));
-                    } else {
-
-                    }
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomePage()));
+                    } else {}
                   });
                 },
                 child: const Text("Sing In")),

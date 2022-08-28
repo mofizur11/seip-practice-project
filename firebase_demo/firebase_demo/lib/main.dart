@@ -1,9 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_demo/home_page.dart';
+import 'package:firebase_demo/register.dart';
 import 'package:firebase_demo/splash_screen.dart';
 import 'package:flutter/material.dart';
 
-void main() async{
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SplashScreen(),
+      home: const Register(),
     );
   }
 }
