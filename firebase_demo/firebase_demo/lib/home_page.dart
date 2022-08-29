@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_demo/user_details.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -38,18 +39,33 @@ class _HomePageState extends State<HomePage> {
                 .map((DocumentSnapshot document) {
                   Map<String, dynamic> data =
                       document.data()! as Map<String, dynamic>;
-                  return Card(
-                    elevation: 1,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("${"Name : " +data['first_name']} "+ data['last_name'] ),
-                          Text("Phone : "+data['phone']),
-                          Text("Age : "+data['age']),
-                          Text("Address : "+data['address']),
-                        ],
+                  return InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (_) => UserDetails(
+                                fName: data["first_name"],
+                                lName: data['last_name'],
+                                phone: data['phone'],
+                                age: data['age'],
+                                address: data['address'],
+                            images: data["images"],
+                              )));
+                    },
+                    child: Card(
+                      elevation: 1,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CircleAvatar(backgroundImage: NetworkImage(data['images']),),
+                            Text("${"Name : " + data['first_name']} " +
+                                data['last_name']),
+                            Text("Phone : " + data['phone']),
+                            Text("Age : " + data['age']),
+                            Text("Address : " + data['address']),
+                          ],
+                        ),
                       ),
                     ),
                   );
