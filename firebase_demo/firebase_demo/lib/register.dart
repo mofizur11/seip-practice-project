@@ -16,7 +16,7 @@ class _RegisterState extends State<Register> {
   final TextEditingController _ageController = TextEditingController();
   final TextEditingController _addressController = TextEditingController();
 
-  // Create a CollectionReference called users that references the firestore collection
+  // Create a CollectionReference called users that references the firestorm collection
   CollectionReference users = FirebaseFirestore.instance.collection('users');
 
   Future<void> addUser() {
