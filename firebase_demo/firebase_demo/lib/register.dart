@@ -21,8 +21,7 @@ class _RegisterState extends State<Register> {
 
   Future<void> addUser() {
     // Call the user's CollectionReference to add a new user
-    return users
-        .add({
+    return users.add({
       'first_name': _fNameController.text,
       'last_name': _lNameController.text,
       'phone': _phoneController.text,
@@ -95,14 +94,13 @@ class _RegisterState extends State<Register> {
               ),
               ElevatedButton(
                   onPressed: () {
-                  addUser();
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const HomePage()));
-
+                    addUser();
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomePage()));
                   },
-                  child: const Text("Sing In")),
+                  child: const Text("Register")),
               const SizedBox(
                 height: 10,
               ),

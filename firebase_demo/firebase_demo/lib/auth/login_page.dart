@@ -1,6 +1,7 @@
 import 'package:firebase_demo/auth/auth_credential.dart';
 import 'package:firebase_demo/auth/singup_page.dart';
 import 'package:firebase_demo/home_page.dart';
+import 'package:firebase_demo/register.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -58,7 +59,7 @@ class _LoginState extends State<Login> {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const HomePage()));
+                              builder: (context) => const Register()));
                     } else {}
                   });
                 },

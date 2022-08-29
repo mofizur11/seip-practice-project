@@ -1,6 +1,7 @@
 import 'package:firebase_demo/auth/auth_credential.dart';
 import 'package:firebase_demo/auth/login_page.dart';
 import 'package:firebase_demo/home_page.dart';
+import 'package:firebase_demo/register.dart';
 import 'package:flutter/material.dart';
 
 class SingUp extends StatefulWidget {
@@ -56,7 +57,7 @@ class _SingUpState extends State<SingUp> {
                       .then((result) {
                     if (result == null) {
                       Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
+                          MaterialPageRoute(builder: (context) => Register()));
                     } else {}
                   });
                 },
