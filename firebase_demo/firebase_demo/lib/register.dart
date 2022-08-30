@@ -15,6 +15,7 @@ class _RegisterState extends State<Register> {
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
   final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _imageController = TextEditingController();
 
   // Create a CollectionReference called users that references the firestorm collection
   CollectionReference users = FirebaseFirestore.instance.collection('users');
@@ -27,6 +28,7 @@ class _RegisterState extends State<Register> {
       'phone': _phoneController.text,
       'age': _ageController.text,
       'address': _addressController.text,
+      'images': _imageController.text,
     });
   }
 
@@ -45,7 +47,7 @@ class _RegisterState extends State<Register> {
                 controller: _fNameController,
                 decoration: const InputDecoration(
                   hintText: "Enter First Name",
-                  enabledBorder: OutlineInputBorder(),
+                  border: OutlineInputBorder(),
                 ),
               ),
               const SizedBox(
@@ -55,7 +57,7 @@ class _RegisterState extends State<Register> {
                 controller: _lNameController,
                 decoration: const InputDecoration(
                   hintText: "Enter Last Name",
-                  enabledBorder: OutlineInputBorder(),
+                  border: OutlineInputBorder(),
                 ),
               ),
               const SizedBox(
@@ -65,7 +67,7 @@ class _RegisterState extends State<Register> {
                 controller: _phoneController,
                 decoration: const InputDecoration(
                   hintText: "Enter Phone Number",
-                  enabledBorder: OutlineInputBorder(),
+                  border: OutlineInputBorder(),
                 ),
               ),
               const SizedBox(
@@ -75,7 +77,17 @@ class _RegisterState extends State<Register> {
                 controller: _ageController,
                 decoration: const InputDecoration(
                   hintText: "Enter Age",
-                  enabledBorder: OutlineInputBorder(),
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextField(
+                controller: _imageController,
+                decoration: const InputDecoration(
+                  hintText: "Enter Image Url",
+                  border: OutlineInputBorder(),
                 ),
               ),
               const SizedBox(
@@ -86,7 +98,7 @@ class _RegisterState extends State<Register> {
                 maxLines: 5,
                 decoration: const InputDecoration(
                   hintText: "Enter Address",
-                  enabledBorder: OutlineInputBorder(),
+                  border: OutlineInputBorder(),
                 ),
               ),
               const SizedBox(

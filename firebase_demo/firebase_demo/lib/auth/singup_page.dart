@@ -2,6 +2,7 @@ import 'package:firebase_demo/auth/auth_credential.dart';
 import 'package:firebase_demo/auth/login_page.dart';
 import 'package:firebase_demo/home_page.dart';
 import 'package:firebase_demo/register.dart';
+import 'package:firebase_demo/user_details.dart';
 import 'package:flutter/material.dart';
 
 class SingUp extends StatefulWidget {
@@ -30,7 +31,7 @@ class _SingUpState extends State<SingUp> {
               controller: _emailController,
               decoration: const InputDecoration(
                 hintText: "Enter Email",
-                enabledBorder: OutlineInputBorder(),
+                border: OutlineInputBorder(),
               ),
             ),
             const SizedBox(
@@ -40,7 +41,7 @@ class _SingUpState extends State<SingUp> {
               controller: _passController,
               decoration: const InputDecoration(
                 hintText: "Enter Password",
-                enabledBorder: OutlineInputBorder(),
+                border: OutlineInputBorder(),
               ),
             ),
             const SizedBox(
@@ -71,6 +72,15 @@ class _SingUpState extends State<SingUp> {
                       .push(MaterialPageRoute(builder: (_) => const Login()));
                 },
                 child: const Text("Already SingUp Please Login")),
+            const SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const HomePage()));
+                },
+                child: const Text("Go to user list")),
           ],
         ),
       ),

@@ -1,4 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_demo/auth/login_page.dart';
+import 'package:firebase_demo/blog/blog_screen.dart';
 import 'package:firebase_demo/home_page.dart';
 import 'package:firebase_demo/register.dart';
 import 'package:firebase_demo/splash_screen.dart';
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const Login(),
     );
   }
 }

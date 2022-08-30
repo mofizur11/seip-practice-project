@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                                 phone: data['phone'],
                                 age: data['age'],
                                 address: data['address'],
-                            images: data["images"],
+                                images: data["images"],
                               )));
                     },
                     child: Card(
@@ -58,7 +58,9 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            CircleAvatar(backgroundImage: NetworkImage(data['images']),),
+                            CircleAvatar(
+                              backgroundImage: NetworkImage(data['images']),
+                            ),
                             Text("${"Name : " + data['first_name']} " +
                                 data['last_name']),
                             Text("Phone : " + data['phone']),

@@ -1,7 +1,9 @@
 import 'package:firebase_demo/auth/auth_credential.dart';
 import 'package:firebase_demo/auth/singup_page.dart';
+import 'package:firebase_demo/blog/blog_screen.dart';
 import 'package:firebase_demo/home_page.dart';
 import 'package:firebase_demo/register.dart';
+import 'package:firebase_demo/user_details.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -30,7 +32,7 @@ class _LoginState extends State<Login> {
               controller: _emailController,
               decoration: const InputDecoration(
                 hintText: "Enter Your Email",
-                enabledBorder: OutlineInputBorder(),
+                border: OutlineInputBorder(),
               ),
             ),
             const SizedBox(
@@ -40,7 +42,7 @@ class _LoginState extends State<Login> {
               controller: _passController,
               decoration: const InputDecoration(
                 hintText: "Enter Your Password",
-                enabledBorder: OutlineInputBorder(),
+                border: OutlineInputBorder(),
               ),
             ),
             const SizedBox(
@@ -73,7 +75,27 @@ class _LoginState extends State<Login> {
                       .push(MaterialPageRoute(builder: (_) => const SingUp()));
                 },
                 child: const Text("No Account Please SingUp")),
+            const SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const HomePage()));
+                },
+                child: const Text("Go to user list")),
+
+            const SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const BlogScreen()));
+                },
+                child: const Text("My Blog")),
           ],
+
         ),
       ),
     );
