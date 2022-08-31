@@ -19,9 +19,15 @@ class _AddCourseState extends State<AddCourse> {
   XFile? _courseImage;
   String? _imageUrl;
 
-  chooseImageFromGC() async {
+  chooseImageFromG() async {
     ImagePicker picker = ImagePicker();
     _courseImage = await picker.pickImage(source: ImageSource.gallery);
+    setState(() {});
+  }
+
+  chooseImageFromC() async {
+    ImagePicker picker = ImagePicker();
+    _courseImage = await picker.pickImage(source: ImageSource.camera);
     setState(() {});
   }
 
@@ -81,7 +87,27 @@ class _AddCourseState extends State<AddCourse> {
                           ? IconButton(
                               icon: const Icon(Icons.photo),
                               onPressed: () {
-                                chooseImageFromGC();
+                                showDialog(
+                                    context: context,
+                                    builder: (context) => AlertDialog(
+                                          actions: [
+                                            InkWell(
+                                              child: const Icon(Icons.camera),
+                                              onTap: () {
+                                                chooseImageFromC();
+                                              },
+                                            ),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
+                                            InkWell(
+                                              child: const Icon(Icons.photo),
+                                              onTap: () {
+                                                chooseImageFromG();
+                                              },
+                                            ),
+                                          ],
+                                        ));
                               },
                             )
                           : Image.file(
