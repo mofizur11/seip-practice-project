@@ -3,7 +3,7 @@ import 'package:firebase_demo/auth/singup_page.dart';
 import 'package:firebase_demo/blog/blog_screen.dart';
 import 'package:firebase_demo/home_page.dart';
 import 'package:firebase_demo/register.dart';
-import 'package:firebase_demo/user_details.dart';
+import 'package:firebase_demo/upload/course.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -84,7 +84,6 @@ class _LoginState extends State<Login> {
                       MaterialPageRoute(builder: (_) => const HomePage()));
                 },
                 child: const Text("Go to user list")),
-
             const SizedBox(
               height: 10,
             ),
@@ -94,8 +93,16 @@ class _LoginState extends State<Login> {
                       MaterialPageRoute(builder: (_) => const BlogScreen()));
                 },
                 child: const Text("My Blog")),
+            const SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (_) => const Course()));
+                },
+                child: const Text("Course")),
           ],
-
         ),
       ),
     );

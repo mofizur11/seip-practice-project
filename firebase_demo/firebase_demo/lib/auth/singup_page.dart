@@ -58,7 +58,7 @@ class _SingUpState extends State<SingUp> {
                       .then((result) {
                     if (result == null) {
                       Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => Register()));
+                          MaterialPageRoute(builder: (context) => const Register()));
                     } else {}
                   });
                 },
