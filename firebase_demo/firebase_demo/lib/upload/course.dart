@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_demo/upload/add_course.dart';
+import 'package:firebase_demo/upload/update_course.dart';
 import 'package:flutter/material.dart';
 
 class Course extends StatefulWidget {
@@ -17,7 +18,18 @@ class _CourseState extends State<Course> {
   Widget build(BuildContext context) {
     addCourse() {
       return showModalBottomSheet(
-          context: context, builder: (context) => const AddCourse());
+          isDismissible: true,
+          isScrollControlled: true,
+          context: context,
+          builder: (context) => const AddCourse());
+    }
+
+    updateCourse(docId, cName, cFee, cImage) {
+      return showModalBottomSheet(
+          isDismissible: true,
+          isScrollControlled: true,
+          context: context,
+          builder: (context) => UpdateCourse(docId, cName, cFee, cImage));
     }
 
     Future<void> deleteCourse(selectedDocumentId) {
@@ -26,6 +38,7 @@ class _CourseState extends State<Course> {
           .doc(selectedDocumentId)
           .delete();
     }
+
 
     return Scaffold(
       appBar: AppBar(
@@ -86,7 +99,13 @@ class _CourseState extends State<Course> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    updateCourse(
+                                        document.id,
+                                        data["course_name"],
+                                        data["course_fee"],
+                                        data["img"]);
+                                  },
                                   child: const Icon(
                                     Icons.edit,
                                     color: Colors.white,
