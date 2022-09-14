@@ -10,7 +10,7 @@ String baseUrl = "https://apihomechef.antopolis.xyz/";
 
 showInToast(String title) {
   return Fluttertoast.showToast(
-      msg: "$title",
+      msg: title,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.CENTER,
       timeInSecForIosWeb: 1,
