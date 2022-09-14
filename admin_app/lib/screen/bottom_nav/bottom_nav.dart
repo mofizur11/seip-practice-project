@@ -14,8 +14,6 @@ class BottomNavPage extends StatefulWidget {
 
 class _BottomNavPageState extends State<BottomNavPage> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
   static const List<Widget> _widgetOptions = <Widget>[
     OrderPage(),
     ProductPage(),
@@ -53,7 +51,7 @@ class _BottomNavPageState extends State<BottomNavPage> {
               duration: const Duration(milliseconds: 400),
               tabBackgroundColor: Colors.grey[100]!,
               color: Colors.black,
-              tabs: [
+              tabs: const [
                 GButton(
                   icon: Icons.home,
                   text: 'Order',

@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     if (sharedPreferences.getString("token") != null) {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => BottomNavPage()));
+          MaterialPageRoute(builder: (context) => const BottomNavPage()));
     }
   }
 
@@ -64,7 +64,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
@@ -79,15 +78,15 @@ class _LoginPageState extends State<LoginPage> {
         blur: 1,
         opacity: 0.5,
 
-        progressIndicator: CircularProgressIndicator(),
+        progressIndicator: const CircularProgressIndicator(),
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.all(22),
+          padding: const EdgeInsets.all(22),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Login  Koro",
+                "Login  With Email",
                 style: myStyle(
                   25,
                   Colors.pink,
@@ -107,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {
                     getLogin();
                   },
-                  child: Text("Submit"))
+                  child: const Text("Submit"))
             ],
           ),
         ),

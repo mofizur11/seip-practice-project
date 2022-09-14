@@ -23,18 +23,28 @@ class _OrderPageState extends State<OrderPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: orderList.isNotEmpty
-          ? Column(
-            children: [
-              ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: orderList.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text("${orderList[index].user!.name}"),
-                    );
-                  })
-            ],
-          )
+          ? ListView.builder(
+              shrinkWrap: true,
+              itemCount: orderList.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Card(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("${orderList[index].user!.name}"),
+                        const SizedBox(height: 10,),
+                        Text("${orderList[index].price}"),
+                        const SizedBox(height: 10,),
+                        Text("${orderList[index].quantity}"),
+                        const SizedBox(height: 10,),
+                      ],
+                    ),
+                  ),
+                );
+              })
           : const Center(child: CircularProgressIndicator()),
     );
   }

@@ -22,21 +22,21 @@ class CustomeHttp {
   static Future<String> login(String email, String password) async {
     try {
       var link = "${baseUrl}api/admin/sign-in";
-      var map = Map<String, dynamic>();
+      var map = <String, dynamic>{};
       map["email"] = email;
       map["password"] = password;
-      final responce = await http.post(
+      final response = await http.post(
         Uri.parse(link),
         body: map,
         // headers: defaultHeader,
       );
-      if (responce.statusCode == 200) {
-        showInToast("Login Succesfull");
-        return responce.body;
+      if (response.statusCode == 200) {
+        showInToast("Login Successfully");
+        return response.body;
       } else {
         showInToast("Invalid email or password");
         print("something is wrong");
-        return "something is wronggg";
+        return "something is wrong";
       }
     } catch (e) {
       return "something is wrong$e";
@@ -47,20 +47,20 @@ class CustomeHttp {
     List<OrderModel> orderList = [];
     try {
       var link = "${baseUrl}api/admin/all/orders";
-      var responce = await http.get(
+      var response = await http.get(
           Uri.parse(
             link,
           ),
           headers: await getHeaderWithToken());
 
-      if (responce.statusCode == 200) {
-        var data = jsonDecode(responce.body);
+      if (response.statusCode == 200) {
+        var data = jsonDecode(response.body);
         OrderModel orderModel;
         for (var i in data) {
           orderModel = OrderModel.fromJson(i);
           orderList.add(orderModel);
         }
-        print("Order Data is ${data}");
+        print("Order Data is $data");
         return orderList;
       } else {
         showInToast("Something is wrong bro!");
